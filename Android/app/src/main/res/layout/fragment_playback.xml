@@ -1,0 +1,176 @@
+<moe.ahaworks.bilibilibgm.FractionRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="1"
+    tools:context="moe.ahaworks.bilibilibgm.playback.PlaybackFragment">
+
+    <RelativeLayout
+        android:id="@+id/playback_layout_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FA7198">
+
+        <TextView
+            android:id="@+id/playback_btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:text="  返回  "
+            android:textColor="@color/clickable_text_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="正在播放"
+            android:textColor="#FEFEFE"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/playback_btn_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:text="定时关闭"
+            android:textColor="@color/clickable_text_color"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/playback_layout_control_panel"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fefefe"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/playback_cur_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="Music Title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/playback_cur_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playback_cur_title"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="Sub Title"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/playback_cur_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp" />
+
+            <TextView
+                android:id="@+id/playback_cur_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="00:00" />
+
+            <TextView
+                android:id="@+id/playback_cur_time_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="13:22" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/playback_btn_play_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/btn_play" />
+
+            <ImageView
+                android:id="@+id/playback_btn_backward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@+id/playback_btn_play_pause"
+                android:src="@drawable/btn_backward" />
+
+            <ImageView
+                android:id="@+id/playback_btn_forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/playback_btn_play_pause"
+                android:src="@drawable/btn_forward" />
+
+            <ImageView
+                android:id="@+id/playback_btn_loop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/playback_btn_backward"
+                android:src="@mipmap/btn_loop_none" />
+
+            <ImageView
+                android:id="@+id/playback_btn_random"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/playback_btn_forward"
+                android:src="@mipmap/btn_random_disable" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/playback_layout_control_panel"
+        android:layout_below="@id/playback_layout_topbar"
+        android:background="#e0e0e0">
+
+        <ListView
+            android:id="@+id/playback_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</moe.ahaworks.bilibilibgm.FractionRelativeLayout>
